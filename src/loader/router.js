@@ -5,6 +5,7 @@ const { Route } = require('react-router-dom');
 
 const cwd = process.cwd();
 const createRootRoute = ($code, componentDirList) => {
+  // 用生成的路由代码 替换掉 __ROOT__ROUTE__
   const importCodeStr = componentDirList
     .map((dirname) => `import ${dirname.toUpperCase()} from './component/${dirname}/view';`)
     .join('\n');
@@ -19,7 +20,6 @@ module.exports = function loader(source) {
   const options = getOptions(this);
   const componentDir = join(cwd, '/src/component');
   const componentDirList = readdirSync(componentDir);
-  console.log(componentDirList);
   if ($code.indexOf('__ROOT__ROUTE__') > -1) {
     $code = createRootRoute($code, componentDirList);
   }
