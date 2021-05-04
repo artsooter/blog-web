@@ -54,9 +54,6 @@ module.exports = {
         test: /\.(jx|jsx)$/,
         use: {
           loader: path.resolve(__dirname, 'src/loader/router.js'),
-          options: {
-            name: 'Alice',
-          },
         },
         exclude: /node_modules/,
       },
