@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const GetRouterPlugins = require('./src/plugin/router');
 
 module.exports = {
@@ -13,13 +14,24 @@ module.exports = {
       plugin: path.resolve(__dirname, 'src/plugin/'),
     },
   },
-  devtool: 'eval-source-map', // 用于让代码报错的时候，能指向原始错误文件
+  externals: {
+    jquery: 'jQuery',
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    moment: 'moment',
+    shineout: 'Shineout',
+  },
   devServer: {
     hot: true,
     contentBase: './dist',
   },
   plugins: [
     new GetRouterPlugins({ options: true }),
+    new HtmlWebpackPlugin({
+      template: './index.ejs',
+      filename: './index.html',
+      cache: true,
+    }),
   ],
   module: { // 添加新的规则的时候，如果loader解析有问题，可以试试用npm webpack重新打包（来自url-loader的坑）
     rules: [// 规则添加

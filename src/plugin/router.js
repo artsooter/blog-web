@@ -3,7 +3,7 @@ function GetRouterPlugins(options) {
 }
 
 GetRouterPlugins.prototype.apply = function (compiler) {
-  compiler.plugin('emit', (compilation, callback) => {
+  compiler.hooks.emit.tap('justTest', (compilation, callback) => {
     // 在生成文件中，创建一个头部字符串：
     let filelist = 'In this build:\n\n';
 
@@ -22,7 +22,7 @@ GetRouterPlugins.prototype.apply = function (compiler) {
         return filelist.length;
       },
     };
-    callback();
+    console.log(callback);
   });
 };
 
