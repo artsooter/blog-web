@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.pro.config.js",
+    "build": "webpack --config webpack.pro.config.js --env.analysis false ",
+    "analysis": "webpack --config webpack.pro.config.js --env.analysis true ",
     "start": "webpack-dev-server --config webpack.dev.config.js --open"
   },
   "author": "",
