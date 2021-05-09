@@ -19,7 +19,7 @@ class Header extends Component {
     return (
       <div>
         {this.props.data.text}
-        完成70%
+        完成70%(修改了分支的名字）
         <Button type="primary" onClick={this.clickHandle}>点击</Button>
       </div>
     );
