@@ -19,7 +19,7 @@ class Header extends Component {
     return (
       <div>
         {this.props.data.text}
-        测试docker 成功发布
+        完成70%
         <Button type="primary" onClick={this.clickHandle}>点击</Button>
       </div>
     );
