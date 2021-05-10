@@ -25,4 +25,4 @@ jobs:
           username: ${{ secrets.DOCKER_NAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: artshooter/blog-web
-          tag_with_ref: true
+          tags: latest
